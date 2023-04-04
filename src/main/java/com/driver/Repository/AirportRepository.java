@@ -70,7 +70,8 @@ public class AirportRepository {
     }
 
     public int PassengersInFlight(int FlightId){
-        int size = TripDB.get(FlightId).size();
+
+        int size = (TripDB.containsKey(FlightId)? TripDB.get(FlightId).size():0);
         return size;
     }
 
@@ -102,7 +103,7 @@ public class AirportRepository {
     }
 
     public int BookingByPassenger(int PassengerId){
-        return TicketNo.get(PassengerId);
+        return TicketNo.containsKey(PassengerId) ? TicketNo.get(PassengerId):0 ;
     }
 }
 
