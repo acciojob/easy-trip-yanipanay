@@ -60,7 +60,7 @@ public class AirportService {
                 largest =airport;
                 terminals = n;
             }else if(n==terminals){
-                if(airport.getAirportName().compareTo(largest.getAirportName())>0){
+                if(airport.getAirportName().compareTo(largest.getAirportName())<0){
                     largest = airport;
                 }
             }
@@ -114,7 +114,7 @@ public class AirportService {
 
     public String getSrcAirport(int FLightId){
         Flight flight = airportRepository.getFlight(FLightId);
-
+            if(flight==null) return null;
         City SrcCity = flight.getFromCity();
 
         List<Airport> airports = airportRepository.getAllAirports();
