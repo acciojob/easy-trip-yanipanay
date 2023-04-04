@@ -56,7 +56,6 @@ public class AirportRepository {
         List<Integer> Plist = new ArrayList<>();
         if(TripDB.containsKey(FlightID)) Plist = TripDB.get(FlightID);
         Plist.add(PassengerID);
-
         TripDB.put(FlightID,Plist);
     }
 
@@ -71,7 +70,6 @@ public class AirportRepository {
     }
 
     public int PassengersInFlight(int FlightId){
-
         int size = (TripDB.containsKey(FlightId) ? TripDB.get(FlightId).size():0);
         return size;
     }
@@ -79,6 +77,8 @@ public class AirportRepository {
     public boolean TicketBooked(int Flightid, int PassengerID){
 
         if(!FlightDB.containsKey(Flightid)) return false;
+        if(!TripDB.containsKey(Flightid)) return false;
+
         List<Integer> PassengerList = TripDB.get(Flightid);
 
         for(int ID:PassengerList){
