@@ -52,6 +52,7 @@ public class AirportRepository {
 
     public void BookTicket(Integer FlightID,Integer PassengerID){
         TicketNo.put(PassengerID,TicketNo.getOrDefault(PassengerID,0)+1);
+
         List<Integer> Plist = new ArrayList<>();
         if(TripDB.containsKey(FlightID)) Plist = TripDB.get(FlightID);
         Plist.add(PassengerID);
@@ -71,7 +72,7 @@ public class AirportRepository {
 
     public int PassengersInFlight(int FlightId){
 
-        int size = (TripDB.containsKey(FlightId)? TripDB.get(FlightId).size():0);
+        int size = (TripDB.containsKey(FlightId) ? TripDB.get(FlightId).size():0);
         return size;
     }
 

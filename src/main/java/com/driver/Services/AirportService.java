@@ -66,7 +66,7 @@ public class AirportService {
             }
         }
 
-        return (largest==null ? null:largest.getAirportName());
+        return (largest==null ? "":largest.getAirportName());
     }
 
     public int getTicketPrice(int FlightId){
